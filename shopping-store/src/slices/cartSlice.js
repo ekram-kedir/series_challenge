@@ -23,11 +23,11 @@ const cartSlice = createSlice({
           ...state.cartItems[existingIndex],
           cartQuantity: state.cartItems[existingIndex].cartQuantity + 1,
         };
-
+        
       } else {
         let tempProductItem = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProductItem);
-      
+        
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -46,7 +46,7 @@ const cartSlice = createSlice({
 
         state.cartItems = nextCartItems;
 
-      
+        
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -89,7 +89,6 @@ const cartSlice = createSlice({
     clearCart(state, action) {
       state.cartItems = [];
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-     
     },
   },
 });
